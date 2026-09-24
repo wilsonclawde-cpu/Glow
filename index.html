@@ -138,6 +138,10 @@ h3{font-size:clamp(1.9rem,4vw,3rem)}
 .msec-head .cnt{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding-top:.6rem}
 @media(max-width:600px){.msec-head{grid-template-columns:auto 1fr}.msec-head .cnt{grid-column:2}}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.1rem;margin-bottom:1.2rem}
+.cards.few{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.cards.few .card-media{aspect-ratio:4/3}
+@media(min-width:700px){.cards.solo .card{flex-direction:row}.cards.solo .card-media{flex:0 0 46%;aspect-ratio:auto;min-height:300px}.cards.solo .card-body{padding:1.6rem;align-content:center}}
+@media(max-width:600px){.card-media{aspect-ratio:4/3.2}}
 .card{all:unset;display:flex;flex-direction:column;background:var(--paper);border-radius:var(--r);overflow:hidden;border:1px solid var(--line);cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s var(--ease);box-sizing:border-box}
 .card:hover{transform:translateY(-8px);box-shadow:var(--sh)}
 .card:focus-visible{outline:3px solid var(--hot);outline-offset:3px}
@@ -146,7 +150,8 @@ h3{font-size:clamp(1.9rem,4vw,3rem)}
 .card:hover .card-media img{transform:scale(1.06)}
 .badge,.rbadge{position:absolute;top:.8rem;left:.8rem;background:rgba(255,253,249,.92);color:var(--plum);font-style:normal;font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:.35rem .7rem;border-radius:999px;backdrop-filter:blur(6px)}
 .card-body{padding:1.05rem 1.15rem 1.2rem;display:grid;gap:.45rem}
-.card-top,.row-top{display:flex;justify-content:space-between;gap:.6rem;align-items:baseline}
+.row-top{display:flex;justify-content:space-between;gap:.6rem;align-items:baseline}
+.card-top{display:grid;gap:.35rem}
 .card-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.22rem;letter-spacing:-.02em;line-height:1.1}
 .card-desc,.row-desc{color:var(--mute);font-size:.92rem;line-height:1.45}
 .prices{display:inline-flex;gap:.5rem;align-items:baseline;flex:none;white-space:nowrap;font-family:"Bricolage Grotesque",sans-serif}
@@ -268,7 +273,7 @@ dialog.sheet[open]{display:grid;place-items:end center}
 .sheet-in .foot{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
 .sheet-in .disc{font-size:.76rem;color:var(--mute);margin:1rem 0 0}
 /* reveal */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0ms)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s var(--ease),transform .55s var(--ease);transition-delay:var(--d,0ms)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -357,7 +362,7 @@ dialog.sheet[open]{display:grid;place-items:end center}
       <div><p class="eyebrow">Cosy season, cosy cup</p><h3 id="h-autumn">Autumn Specials</h3><p class="lede">Our new autumn line-up — hot or iced, finished with cold foam if you fancy it. Here for the season, then gone.</p></div>
       <span class="cnt">10 items</span>
     </header>
-    <div class="cards"><button class="card reveal" type="button" data-item="S&#x27;mores Latte" aria-haspopup="dialog">
+    <div class="cards few"><button class="card reveal" type="button" data-item="S&#x27;mores Latte" aria-haspopup="dialog">
   <span class="card-media"><img src="img/real-bueno-coffee.jpg" alt="S&#x27;mores Latte at GLOW Sleaford" width="800" height="1000" loading="lazy" decoding="async"><i class="badge">hot/iced</i></span>
   <span class="card-body"><span class="card-top"><b class="card-name">S&#x27;mores Latte</b><span class="prices"><span class="pr"><b>£5.50</b><small>Medium</small></span><span class="pr"><b>£6.00</b><small>Large</small></span></span></span>
   <span class="card-desc">Espresso with house-made toasted marshmallow &amp; chocolate syrup and steamed milk. Hot or iced — add cold foam.</span><span class="chips"><span>🔥 S&#x27;mores</span><span>☕ Coffee</span><span>😌 Treat</span></span></span></button><button class="card reveal" type="button" data-item="Maple Pancake Latte" aria-haspopup="dialog">
@@ -412,7 +417,7 @@ dialog.sheet[open]{display:grid;place-items:end center}
       <div><p class="eyebrow">Sip &amp; recover · all 25g protein</p><h3 id="h-shakes">Protein Shakes</h3><p class="lede">Real fruit and proper superfoods with 25g protein in every cup — zero chalky aftertaste.</p></div>
       <span class="cnt">6 items</span>
     </header>
-    <div class="cards"><button class="card reveal" type="button" data-item="Dubai Chocolate Shake" aria-haspopup="dialog">
+    <div class="cards solo"><button class="card reveal" type="button" data-item="Dubai Chocolate Shake" aria-haspopup="dialog">
   <span class="card-media"><img src="img/new-dubai-shake.jpg" alt="Dubai Chocolate Shake at GLOW Sleaford" width="800" height="1000" loading="lazy" decoding="async"><i class="badge">26g protein</i></span>
   <span class="card-body"><span class="card-top"><b class="card-name">Dubai Chocolate Shake</b><span class="prices"><span class="pr"><b>£6.45</b><small>16oz</small></span><span class="pr"><b>£6.95</b><small>20oz</small></span></span></span>
   <span class="card-desc">Banana, cacao &amp; pistachio butter with protein in oat milk. Dessert energy, gym macros.</span><span class="chips"><span>💪 Protein</span><span>😌 Treat</span><span>🛡️ Magnesium</span></span></span></button></div>
@@ -448,7 +453,7 @@ dialog.sheet[open]{display:grid;place-items:end center}
       <div><p class="eyebrow">Fruit-forward · no protein scoop</p><h3 id="h-juices">Juices &amp; Smoothies</h3><p class="lede">Lighter, brighter blends — cold, fresh and fruit-first.</p></div>
       <span class="cnt">7 items</span>
     </header>
-    <div class="cards"><button class="card reveal" type="button" data-item="Mango Tango" aria-haspopup="dialog">
+    <div class="cards solo"><button class="card reveal" type="button" data-item="Mango Tango" aria-haspopup="dialog">
   <span class="card-media"><img src="img/real-mango-tango.jpg" alt="Mango Tango at GLOW Sleaford" width="800" height="1000" loading="lazy" decoding="async"><i class="badge">vitamin C</i></span>
   <span class="card-body"><span class="card-top"><b class="card-name">Mango Tango</b><span class="prices"><span class="pr"><b>£5.45</b><small>16oz</small></span><span class="pr"><b>£5.95</b><small>20oz</small></span></span></span>
   <span class="card-desc">Mango, banana &amp; passion fruit blended with pressed apple juice.</span><span class="chips"><span>🛡️ Vitamin C</span><span>⚡ Energy</span><span>🌱 Vegan</span></span></span></button></div>
@@ -486,7 +491,7 @@ dialog.sheet[open]{display:grid;place-items:end center}
       <div><p class="eyebrow">The barista bar</p><h3 id="h-coffee">Coffee &amp; Matcha</h3><p class="lede">Proper coffee &amp; ceremonial matcha — hot or iced — finished with our house-made syrups.</p></div>
       <span class="cnt">11 items</span>
     </header>
-    <div class="cards"><button class="card reveal" type="button" data-item="Iced Coffee" aria-haspopup="dialog">
+    <div class="cards few"><button class="card reveal" type="button" data-item="Iced Coffee" aria-haspopup="dialog">
   <span class="card-media"><img src="img/real-iced-coffee.jpg" alt="Iced Coffee at GLOW Sleaford" width="800" height="1000" loading="lazy" decoding="async"><i class="badge">iced</i></span>
   <span class="card-body"><span class="card-top"><b class="card-name">Iced Coffee</b><span class="prices"><span class="pr"><b>£3.75</b><small>16oz</small></span><span class="pr"><b>£3.95</b><small>20oz</small></span></span></span>
   <span class="card-desc">Smooth cold brew or iced latte, poured over plenty of ice with your choice of milk.</span><span class="chips"><span>☕ Coffee</span><span>⚡ Energy</span><span>🧊 Iced</span></span></span></button><button class="card reveal" type="button" data-item="Iced Matcha Latte" aria-haspopup="dialog">
@@ -719,7 +724,7 @@ dialog.sheet[open]{display:grid;place-items:end center}
   var onS=function(){var y=window.scrollY||0;nav.classList.toggle('on',y>12);fab&&fab.classList.toggle('show',y>500)};
   addEventListener('scroll',onS,{passive:true});onS();
   // reveal
-  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08}):null;
+  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px 0px 0px',threshold:.02}):null;
   document.querySelectorAll('.reveal').forEach(function(el,i){if(io){io.observe(el)}else{el.classList.add('in')}});
   // scroll-spy for category bar
   var pills=[].slice.call(document.querySelectorAll('.catbar a')),secs=pills.map(function(a){return document.querySelector(a.getAttribute('href'))});
